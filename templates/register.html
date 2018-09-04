@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block script %}
+        <script src="/static/scripts/registration.js"></script>
+{% endblock %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h1><align=center>Sign Up</h1><br>
+
+    <form name="register" action="/register" method="post">
+
+        <div class="form-group">
+            <label>Please choose a Username</label>
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="e.g. Bruce_123" type="text"
+            id="username"/>
+            <button class="btn btn-primary" 
+                    onclick="return usernameXHR()">check
+            </button>
+        </div>
+
+        <div class="form-group">
+            <label>Please choose a password</label>
+            <input class="form-control" name="password" placeholder="e.g. a1B2c3A1b2C3" type="password"/>
+        </div>
+
+        <div class="form-group">
+             <label>Please retype password</label>
+            <input class="form-control" name="confirmation" placeholder="..." type="password"/>
+        </div>
+
+        <div class="form-group">
+             <label>*Please enter your Email</label>
+            <input class="form-control" name="email" placeholder="*optional" 
+            type="text" autocomplete="off"/>
+        </div> <br>
+
+        <button class="btn btn-primary" onclick="return validateForm()" type="submit">Register</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- documentation at http://getbootstrap.com/docs/4.0/, alternative themes at https://bootswatch.com/4-alpha/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <!-- Local stylesheet -->
+        <link href="/static/style.css" rel="stylesheet"/>
+        
+        <!-- load Jquery script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- load popper script !!!!! PREVENTS ERROR IN BOOTSTRAP'S JS (not sure why) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+
+        <!-- load bootstrap script -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+        <!-- Local Javascript -->
+        <script src="/static/scripts/global.js"></script>
+        {% block script %} {% endblock %}
+
+
+        <!-- Placeholder for generated title blocks -->
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+
+<!-- Full Body of site  -->
+    <body>
+        <!-- Basic Bootstrap Navbar (*optional - image as Homebutton) -->
+        <nav class="navbar navbar-default navbar-expand-lg navbar-light"
+                style="background-color:#FFFFFF">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <!-- <img alt="index" 
+                            src={{ url_for('static', filename="alien_sml.bmp") }}
+                            height="40" width="38" /> -->HOME
+                    </a>
+                </div>
+            <!-- List of all the links on the navbar -->
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/javascript">Javascript</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="/register">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+<!-- Main container block -->
+<main class="container p-5">
+
+    <!-- Inside Block -->
+<br><div id="block"> {% block main %}{% endblock %} </div>
+
+        </main>   
+    </body>
+</html>
