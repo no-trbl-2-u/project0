@@ -3,8 +3,6 @@ from flask import render_template, request, jsonify
 from models import Member
 from help_func import apology, eprint
 
-username_not_in_db = False
-
 
 @app.route("/")
 def index():
@@ -30,52 +28,48 @@ def register():
 
     if request.method == "POST":
 
-        # ======= User Name =======
-        if request.form.get("username") is not "":
-            username = request.form.get("username")
-        else:
-            return apology("Please Enter a Username", 403)
+        # ======= Form Data =======
+        username = request.form.get("username")
+        password = request.form.get("password")
+        email = request.form.get("email")
 
-        # ======= Pass Word =======
-        if request.form.get("password") is not "":
-            password = request.form.get("password")
+        # ======= Database Interactions ======
+
         # TODO -> Hash password
-        else:
-            return apology("Empty Password Field", 407)
 
-        # ======== Email =======
-        if request.form.get("email") is not "":
-            email = request.form.get("email")
-
-        # ======== Is Verified? =======
-        isValid = False
-
-        # ======= Database ======
-        # Continue to fine tune the input
-        # TODO -> Hash password
+        # Create placeholder for entire db of registrants
         rows = Member.query.all()
+
+        # Instantiate a member with the properties from the Form Data
         registrant = Member(username=username, password=password, email=email)
 
-        # for row in rows:
-        #     if username == row.username:
-        #         return render_template("index.html")
-        #     else:
-        #         # db.session.add(registrant)
-        #         # db.session.commit()
+        # Last line of defense against duplicate entries
+        for row in rows:
+            if username == row.username:
+                return render_template("index.html")
 
-        return render_template("index.html", isValid=isValid)
+        # All validation has been completed by this point
+
+        # Commit registrant to database
+        db.session.add(registrant)
+        db.session.commit()
+
+        return render_template("index.html")
 
 
 @app.route("/register/validate", methods=['GET', 'POST'])
 def register_validate():
+    ''' Response to the XMLHttpRequest from JS '''
 
-    # EXPLAIN THE TRAILING WHITESPACE IN THE USERNAME RESPONSE!!
     if request.method == 'POST':
-        username = request.form['username ']
 
-        eprint(username)
-        eprint(request.data)
-        return jsonify("XHR complete")
-        
-    eprint("test")
-    return render_template("index.html")
+        # All the data relevant to a db check
+        username = request.form['username']
+        rows = Member.query.all()
+
+        # Iterate through database to see if username present
+        for row in rows:
+            if username == row.username:
+                return jsonify(isValid=False)
+
+        return jsonify(isValid=True)

@@ -1,7 +1,7 @@
 body {
 
     /* The image used */
-    background: white url("./images/scroll2.jpeg") no-repeat center;
+    background: white url("./images/scroll2.jpeg") repeat center;
 
     /* Full height */
     height: 100%; 
@@ -11,19 +11,19 @@ body {
 }
 
 #block {
-    border: 5px solid black;
+    border: 3px solid black;
 
     /* !NOTE! (margin:auto) centers the div */
     margin: auto;
     width: 100%;
-    height: 400px;
+    height: 500px;
 
     background-color:#FFFFFF;
 
     /*font-family: CenturyGothic;*/
     font-family: Philosopher;
     text-align:center;
-    font-size:10px;
+    font-size:16px;
 
     overflow:auto;
 }
