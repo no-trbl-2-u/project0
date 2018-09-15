@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             window.alert("Thank you for registering!");
             return true
         };
+
         if(databaseValidation === false){
             window.alert("Username already in use")
             event.preventDefault();
@@ -109,26 +110,22 @@ function isValidUsername(){
     let username = document.getElementById('username').value;
     let postVar = 'username='+username;
 
-    console.log("in isValidUsername -> postVar: " + postVar)
-
     // Send the configured request
-    xhr.send(postVar)
+    xhr.send(postVar);
 
     // Since it's not async, the response can be used here
-    let response = JSON.parse(xhr.responseText)
-    console.log("in isValidUsername -> response: " + response['isValid']);
+    let response = JSON.parse(xhr.responseText);
 
-    return response['isValid']
-}
+    return response['isValid'];
+};
 
 // Callback function for successful blur event
 function usernameGood(button, usernameField){
-    console.log("Finishline")
     button.disabled = false;
-}
+};
 
 // Callback function for failed blur event
 function usernameBad(button, usernameField){
     window.alert("Username already in use")
     button.disabled = true;
-}
+};

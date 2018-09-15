@@ -1,0 +1,23 @@
+Element with id (div#header, E#id)
+# is used to apply id’s to any element.
+
+Element with class (div.container, aside.sidebar)
+. is used to apply classes to any element.
+
+Child element div.header>div.main>.post
+> is used to create child elements.
+
+Sibling Elements E+N (h1+h2)
++ sign is used to create sibling elements.
+
+Multilpication of Elements li*5
+* symbol will create defined multiple numbers of any element. Useful to create list items.
+
+Item numbering li.item$*5
+$ symbol create item number. You can use it with * to create multiple items with numbering.
+Climb-up: ^ : header>#main^footer
+With ^ operator, you can climb one level up the tree and change context where following elements should appear:
+Grouping: ()
+{} Parentheses can be used for grouping sub-trees in complex abbreviations.
+Adding text {} : E{text}
+{} is used to add text to an element.

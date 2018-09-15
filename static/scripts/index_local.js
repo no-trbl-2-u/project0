@@ -1,3 +1,8 @@
-function local(){
-    alert("This is from the local/page specific script");
-}
+document.addEventListener('DOMContentLoaded', () =>{
+
+    let button = document.getElementById('reset_button');
+
+    button.addEventListener('click', ()=>{
+        updateModels();
+    });
+});

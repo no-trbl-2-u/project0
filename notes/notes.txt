@@ -1,0 +1,27 @@
+Colors for theme:
+
+soft{
+    green:BFBF92
+    brown:9F8475
+    yellow:D7C090
+    whitish:F5EECE
+}
+
+
+To include javascript functionality to any given page,
+use the {%block script%} template and put the FULL
+<script></script> tag in targeting a .js file inside the
+static/scripts/$script_filename directory
+
+Current TODO
+    Login.html
+        -> Make prettier (center/simple)
+        
+    Index.html
+        -> Get RID OF IT (replace with description of the game)
+        -> Get RID OF IT (you'd like to build.)
+
+    Register.js
+        -> Either:
+            * Grab a "success"/"failure" icon from internet ||
+            * Create another label, success/failure CSS class

@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %} Web Rpg {% endblock %}
+
+{% block script %}
+<script src="/static/scripts/create_char.js"></script>
+{% endblock %}
+
+{% block main %}
+
+<br><h5 align="center">Create Your Character </h3>
+<form name="create_char" action="/create_char" method="post">
+    
+    <div id="name_section" class="form-group">
+        <label for="name">Choose your Name</label>
+        <input autocomplete="off" autofocus align="left"
+                name="name" placeholder="*20 chars max" 
+                type="text" id="name"/>
+        <br><br>
+        <label for="race">Choose your Race</label>
+        <input autocomplete="off" align="left"
+                name="race" placeholder="Dropdown" 
+                type="text" id="race"/>
+    </div>
+
+    <div id="class_section" class="form-group">
+        <label for="class">Choose your Class</label>
+        <input autocomplete="off" autofocus align="left"
+                name="class" placeholder="Dropdown" 
+                type="text" id="_class"/>
+        <br><br>
+        <label for="race">Place for description maybe</label>
+        <input autocomplete="off" align="left"
+                name="race" placeholder="Dropdown" 
+                type="text" id="name"/>
+    </div>
+
+    <div id="image_section">
+        <img class="img-thumbnail" class="img-responsive" src="{{ url_for('static', filename='images/portraits/male_warrior-400x518.jpg') }}" 
+        alt="portrait" id="image"/>
+    </div>
+
+</form>
+
+<div id="description_section">
+    
+    <p>"Character Creation Status, update me with AJAX calls while they make their character"
+    </p>
+
+</div>
+
+{% endblock %}

@@ -16,7 +16,7 @@
         <li>Python
             <ul>
                 <li>Flask</li>
-                <li>SQLAlchemy (see: {{ firstmember }})</li>
+                <li>Flask-SQLAlchemy (see:{{ firstmember }})</li>
             </ul>
         </li>
 
@@ -30,8 +30,9 @@
         <li>HTML</li>
         <li>CSS</li>
     </ul>
-
-    <button onclick="global()">Global</button>
-    <button onclick="local()">Local</button>
+    
+{% if firstmember == 'admin' %}
+    <button id="reset_button">Reset Models in DB</button>
+{% endif %}
 
 {% endblock %}

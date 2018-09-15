@@ -1,7 +1,7 @@
 body {
 
     /* The image used */
-    background: white url("./images/scroll2.jpeg") repeat center;
+    background: white url("./images/background/scroll2.jpeg") repeat center;
 
     /* Full height */
     height: 100%; 
@@ -52,21 +52,54 @@ main img
     max-width: 100%;
 }
 
-.error {
-    size:%50;
+#logout{
+    position:fixed;
+    padding-right:15px;
+    right:0;
 }
 
-#js_code {
-    /* !NOTE! (margin:auto) centers the div */
-    margin: auto;
-    width: 70%;
-    height: 200px;
+#name_section
+{
+    float:left;
+    background: white url("./images/background/wood_2.jpg") repeat center;
 
-    background-color:#000000;
-    color:green;
+    margin:30px;
+    width:30%;
+    height:200px;
+}
 
-    /*font-family: CenturyGothic;*/
-    font-family: Courier;
-    text-align:left;
-    
+#class_section
+{
+    float:right;
+    border:2px solid black;
+    background: white url("./images/background/wood_1.png") repeat center;
+
+    margin:30px;
+    width:30%;
+    height:200px;
+}
+
+#description_section
+{
+    position:relative;
+    top:250px;
+
+    background-color: azure;
+    margin:30px;
+    width:93.5%;
+    height:100px;
+}
+
+#image_section
+{   
+    margin:auto;
+    width: 20%;
+    height:10px;
+
+    object-fit:fill;
+}
+
+label
+{
+    display:block;
 }

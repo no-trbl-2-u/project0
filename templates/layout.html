@@ -24,7 +24,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
         <!-- Local Javascript -->
-        <script src="/static/scripts/global.js"></script>
+        <script src="/static/scripts/help_func.js"></script>
         {% block script %} {% endblock %}
 
 
@@ -46,10 +46,31 @@
                             height="40" width="38" /> -->HOME
                     </a>
                 </div>
+                
             <!-- List of all the links on the navbar -->
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="/javascript">Javascript</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="/register">Register</a></li>
+
+                {% if session.user_id %}
+                <!-- Placeholder for future IF-LOGGED-IN links -->
+
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link"
+                         href="/create_char">Create Character</a></li>
+                    </ul>
+
+                <!-- Send to the left Already! -->
+                    <ul class="navbar-nav ml-auto mt-2" id="logout">
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    </ul>
+
+                {% else %}
+                <!-- List of NOT-LOGGED-IN links -->
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                    </ul>
+
+                {% endif %}
                 </ul>
             </div>
         </nav>
